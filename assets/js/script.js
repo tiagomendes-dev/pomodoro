@@ -31,12 +31,18 @@ function blockButtons() {
   pomodoroSelect.disabled = true;
   shortBreakSelect.disabled = true;
   longBreakSelect.disabled = true;
+  pomodoroSelect.classList.add("text-[#F4EDDB]/50");
+  shortBreakSelect.classList.add("text-[#F4EDDB]/50");
+  longBreakSelect.classList.add("text-[#F4EDDB]/50");
 }
 
 function enableButtons() {
   pomodoroSelect.disabled = false;
   shortBreakSelect.disabled = false;
   longBreakSelect.disabled = false;
+  pomodoroSelect.classList.remove("text-[#F4EDDB]/50");
+  shortBreakSelect.classList.remove("text-[#F4EDDB]/50");
+  longBreakSelect.classList.remove("text-[#F4EDDB]/50");
 }
 
 function secondsToMinutesSeconds(seconds) {
@@ -88,9 +94,11 @@ function pauseTimer() {
   startButton.classList.add("hidden");
   pauseButton.classList.add("hidden");
   resumeButton.classList.remove("hidden");
+
+  enableButtons();
 }
 
-function resumeTimer() {
+function resumeTimer(timer) {
   isPaused = false;
   startButton.classList.add("hidden");
   pauseButton.classList.remove("hidden");

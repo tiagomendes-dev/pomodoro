@@ -11,32 +11,36 @@
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Development version -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <!-- Lucide Production version -->
-    <script src="https://unpkg.com/lucide@latest"></script>
 	</head>
 	<body class="bg-[#E7626C] text-[#F4EDDB] text-lg flex flex-col justify-center items-center h-screen">
     <header class="mb-16">
       <img src="./assets/image/logo.svg" alt="Pomodoro" />
-      <i data-lucide="menu"></i>
     </header>
     <main>
-      <section>
-        <section>
-          <div>
-            <button onclick="selectTimer('pomodoro')" id="pomodoro" class="modality active-button" type="button">Pomodoro</button>
-            <button onclick="selectTimer('short-break')" id="short-break" class="modality" type="button">Intervalo Curto</button>
-            <button onclick="selectTimer('long-break')" id="long-break" class="modality" type="button">Intervalo Longo</button>
-          </div>
-          <div>
-            <p id="counter" class="font-extrabold text-8xl sm:text-[12.5rem]">25:00</p>
-          </div>
-          <div>
-            <button onclick="startTimer(selectedTimer)" id="start" class="start" type="button">Começar</button>
-          </div>
-        </section>
-      </section>
+        <div class="flex gap-10 justify-center text-xs sm:text-lg">
+          <button onclick="selectTimer('pomodoro')" id="pomodoro" class="active-button pb-2.5 sm:pb-4" type="button">Pomodoro</button>
+          <button onclick="selectTimer('short-break')" id="short-break" class="pb-2.5 sm:pb-4" type="button">Intervalo Curto</button>
+          <button onclick="selectTimer('long-break')" id="long-break" class="pb-2.5 sm:pb-4" type="button">Intervalo Longo</button>
+        </div>
+        
+        <div class="my-10 sm:my-16">
+          <p id="counter" class="font-extrabold text-center text-8xl sm:text-[12.5rem]">25:00</p>
+        </div>
+
+        <div class="flex justify-center gap-4">
+          <button onclick="startTimer(selectedTimer)" id="start" class="border-[#F4EDDB] border-8 rounded-full p-2" type="button">
+            <i data-lucide="play" id="playButton" class="size-10 sm:size-12" fill="#F4EDDB"></i>
+          </button>
+          <button onclick="resumeTimer(selectedTimer)" id="resume"" class="border-[#F4EDDB] border-8 rounded-full p-2 hidden" type="button">
+            <i data-lucide="play" id="resumeButton" class="size-10 sm:size-12" fill="#F4EDDB"></i>
+          </button>
+          <button onclick="pauseTimer(selectedTimer)" id="stop" class="border-[#F4EDDB] border-8 rounded-full p-2 hidden" type="button">
+            <i data-lucide="pause" id="pauseButton" class="size-10 sm:size-12" fill="#F4EDDB"></i>
+          </button>
+          <!-- <button onclick="resumeTimer(selectedTimer)" id="resume" class="p-2" type="button">
+            <i data-lucide="rotate-ccw" id="playButton" class="size-10 sm:size-12"></i>
+          </button> -->
+        </div>
     </main>
 
 

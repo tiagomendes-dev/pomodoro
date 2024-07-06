@@ -8,19 +8,18 @@
 
 		<link rel="stylesheet" href="./assets/css/style.css" />
 		<script src="./assets/js/script.js" defer /></script>
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <style type="text/tailwindcss">
-      @layer utilities {
-        .content-auto {
-          content-visibility: auto;
-        }
-      }
-    </style>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Development version -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Lucide Production version -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 	</head>
-	<body class="bg-[#E7626C] text-[#F4EDDB]">
-    <header>
+	<body class="bg-[#E7626C] text-[#F4EDDB] text-lg flex flex-col justify-center items-center h-screen">
+    <header class="mb-16">
       <img src="./assets/image/logo.svg" alt="Pomodoro" />
+      <i data-lucide="menu"></i>
     </header>
     <main>
       <section>
@@ -31,7 +30,7 @@
             <button onclick="selectTimer('long-break')" id="long-break" class="modality" type="button">Intervalo Longo</button>
           </div>
           <div>
-            <p id="counter" class="font-extrabold text-">25:00</p>
+            <p id="counter" class="font-extrabold text-8xl sm:text-[12.5rem]">25:00</p>
           </div>
           <div>
             <button onclick="startTimer(selectedTimer)" id="start" class="start" type="button">Começar</button>
@@ -39,5 +38,13 @@
         </section>
       </section>
     </main>
+
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>

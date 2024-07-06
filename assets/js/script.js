@@ -11,9 +11,6 @@ let interval;
 
 let selectedTimer = "pomodoro";
 
-// startButton.addEventListener("click", startTimer(selectedTimer));
-// pauseButton.addEventListener("click", pauseTimer(selectedTimer));
-
 function changeSelectClasses(timer) {
   if (timer === "pomodoro") {
     pomodoroSelect.classList.add("active-button");
@@ -28,6 +25,18 @@ function changeSelectClasses(timer) {
     shortBreakSelect.classList.remove("active-button");
     longBreakSelect.classList.add("active-button");
   }
+}
+
+function blockButtons() {
+  pomodoroSelect.disabled = true;
+  shortBreakSelect.disabled = true;
+  longBreakSelect.disabled = true;
+}
+
+function enableButtons() {
+  pomodoroSelect.disabled = false;
+  shortBreakSelect.disabled = false;
+  longBreakSelect.disabled = false;
 }
 
 function secondsToMinutesSeconds(seconds) {
@@ -55,7 +64,6 @@ function selectTimer(timer) {
 
 function startTimer(timer) {
   let seconds = getTimerValue(timer);
-
   interval = setInterval(() => {
     if (!isPaused) {
       seconds -= 1;
@@ -64,8 +72,11 @@ function startTimer(timer) {
     timerParagraph.textContent = secondsToMinutesSeconds(seconds);
     if (seconds === 0) {
       clearInterval(interval);
+
+      enableButtons();
     }
   }, 1000);
+  blockButtons();
 
   startButton.classList.add("hidden");
   pauseButton.classList.remove("hidden");
